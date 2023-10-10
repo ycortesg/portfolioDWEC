@@ -1,0 +1,114 @@
+html, body {
+    position: absolute;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.invierno{
+    background-image: url("https://wallpapercave.com/wp/wp8002840.jpg");
+    
+}
+
+.primavera{
+    background-image: url("https://png.pngtree.com/background/20230403/original/pngtree-green-grass-flower-petals-spring-cartoon-advertising-background-picture-image_2273380.jpg");
+    
+}
+
+.verano{
+    background-image: url("https://wallpapercave.com/wp/wp6776191.jpg");
+    
+}
+
+.otoño{
+    background-image: url("https://wallpaperaccess.com/full/1209660.jpg");
+    
+}
+
+.fondo{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 1s;
+}
+
+.hiden{
+    opacity: 0;
+}
+
+.active{
+    opacity: 1;
+}
+
+#contador{
+    width: 450px;
+    height: 180px;
+    min-width: 450px;
+    min-height: 180px;
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    font-size: 200%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    z-index: 2;
+    text-align: center;
+    
+}
+
+#contador .numeros{
+    height: 40%;
+    width: 15%;
+}
+
+#contador .puntos{
+    height: 30%;
+    width: 4%;
+    font-size: 135%;
+    margin-bottom: 20px;
+}
+
+.centrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-cumple{
+    background-image: url("https://cdn5.dibujos.net/dibujos/pintados/201934/tarta-de-cumpleanos-fiestas-cumpleanos-11622878.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mensaje-felizidades{
+    background-color: black;
+    width: 450px;
+    height: 100px;
+    min-width: 450px;
+    min-height: 100px;
+    color: white;
+    border-radius: 20px;
+    font-size: 200%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    z-index: 2;
+    text-align: center;
+    position: absolute;
+    top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: aperece-mensaje;
+    animation-duration: 1s;
+}
+
+@keyframes aperece-mensaje {
+    from {
+        opacity: 0;
+    }to {
+        opacity: 1;
+    }
+}

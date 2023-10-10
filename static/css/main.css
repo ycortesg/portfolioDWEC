@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit&family=Open+Sans&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap");
+
+:root {
+  --color-negro: #111827;
+  --color-blanco: #f2f2f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.columna {
+  flex-direction: column;
+}
+
+html,
+body {
+  height: 250vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-blanco);
+}
+
+header {
+  width: 100%;
+  height: 17%;
+}
+
+.conatiner-titulo {
+  height: 90%;
+  width: 80%;
+  border-radius: 20px;
+  background: linear-gradient(
+    116deg,
+    #6966ff 3%,
+    rgba(42.5, 255, 127.5, 0.73) 74%
+  );
+  min-width: 378px;
+  min-height: 206px;
+  max-height: 206px;
+}
+
+.conatiner-titulo .parrafo {
+  height: 60%;
+  width: 60%;
+  min-width: 372px;
+  min-height: 123px;
+  max-width: 372px;
+  max-height: 123px;
+  text-align: center;
+  color: var(--color-negro);
+}
+
+.parrafo .hola {
+  height: 30%;
+  width: 50%;
+  font-size: 22.48px;
+  font-family: Nunito;
+  font-style: italic;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.parrafo p {
+  height: 80%;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 36.36px;
+  word-wrap: break-word;
+}
+
+.conatiner-titulo .links {
+  min-width: 372px;
+  min-height: 40px;
+  max-width: 372px;
+  max-height: 40px;
+}
+
+.links button {
+  background: transparent;
+  margin-left: 2%;
+  margin-right: 2%;
+  border: 0;
+  height: 70%;
+  width: 30%;
+  font-family: Roboto;
+}
+
+.links .contacto {
+  color: var(--color-blanco);
+  background-color: var(--color-negro);
+  border-radius: 20px;
+}
+
+.links .curriculum {
+  color: var(--color-negro);
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+.mis-proyectos, .sobre-mi {
+  width: 80%;
+  height: 40%;
+  margin-bottom: 2em;
+  min-width: 50em;
+  min-height: 30em;
+  max-width: 50em;
+  max-height: 30em;
+}
+
+.mis-proyectos h1, .sobre-mi h1{
+  height: 20%;
+  width: 100%;
+  color: var(--color-negro);
+  font-size: 47px;
+  font-family: Roboto;
+  font-weight: 500;
+  line-height: 42px;
+  word-wrap: break-word;
+}
+
+.container-proyectos {
+  height: 70%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+
+.proyecto {
+  height: 100%;
+}
+
+.proyecto h2 {
+  height: 7%;
+  width: 100%;
+  color: var(--color-negro);
+  font-size: 19.42px;
+  font-family: Roboto;
+  font-weight: 500;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.proyecto .tecnologias {
+  height: 10%;
+  gap: 0.1em;
+}
+
+.tecnologias .tecnologia {
+  color: white;
+  font-size: 8.18px;
+  font-family: Roboto;
+  font-weight: 400;
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px;
+  margin: 2px;
+}
+
+.tecnologias .js {
+  background-color: #f59e0b;
+}
+
+.tecnologias .css {
+  background-color: #34d399;
+}
+
+.tecnologias .html {
+  background-color: #f43f5e;
+}
+
+.tecnologias .react {
+  background-color: #38bdf8;
+}
+
+.tecnologias .api {
+  background-color: rgb(44, 44, 44);
+}
+
+.conatiner-preview {
+  height: 40%;
+  width: 100%;
+  padding-top: 17.59px;
+  padding-bottom: 11.82px;
+  border-radius: 9px;
+}
+
+.conatiner-preview img{
+  width: 80%;
+  height: 90%;
+}
+
+.container-deploy {
+  height: 10%;
+  font-size: 8.18px;
+  font-family: Roboto;
+  font-weight: 400;
+  width: 60%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20%;
+}
+.container-deploy a{
+  text-decoration: none;
+  color: var(--color-negro);
+}
+
+.container-deploy a svg {
+  margin-left: 10%;
+}
+
+.fondo-rojo {
+  background-color: #e23839;
+}
+
+.fondo-verde {
+  background-color: #022516;
+}
+
+.fondo-naranja {
+  background-color: #ed7854;
+}
+
+
+.sobre-mi .texto, .sobre-mi .imagen{
+    height: 100%;
+    width: 50%;
+}
+
+.texto{
+    gap: 1rem;
+}
+
+.parrafo-presentacion{
+    border-left: solid 3px var(--color-negro);
+    width: 100%;
+    height: 20%;
+}
+
+.parrafo-presentacion p{
+    width: 92%; 
+    height: 100%;
+    color: var(--color-negro); 
+    font-size: 16px; 
+    font-family: Roboto; 
+    font-weight: 400; 
+    line-height: 1.2rem;
+}
+
+.skills {
+    width: 100%;
+    height: 34%;
+}
+
+.skills h3 {
+    width: 100%; 
+    height: 20%; 
+    color: var(--color-negro); 
+    font-size: 26.57px; 
+    font-family: Roboto; 
+    font-weight: 500; 
+}
+
+.logos-skills{
+    height: 80%;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20%;
+}
+
+.logos-skills svg{
+    border-radius: 20px;
+    height: 64px;
+    width: 64px;
+    box-shadow: 5px 5px 10px #c0c0c0;
+}
+
+.logos-skills .py{
+    box-shadow: 0 0 0 0;
+}
+
+.logos-skills p{
+    color: var(--color-negro);
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+}
+
+footer {
+  background-color: #111827;
+  width: 100%;
+  height: 25%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.navegacion {
+  width: 80%;
+  height: 4%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navegacion div {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 100%;
+}
+
+.navegacion .activo {
+  background-color: #f59e0b;
+}
+
+.navegacion .inactivo {
+  background-color: #a0a0a0;
+}
+
+footer .alguna-idea,
+footer .fondo {
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+
+.fondo {
+  overflow: hidden;
+}
+
+.fondo-img {
+  background-image: url("../images/RectanguloFondo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.alguna-idea h2 {
+  width: 80%;
+  font-family: Roboto;
+  font-size: 2.5rem;
+  color: var(--color-blanco);
+}
+
+.alguna-idea p,
+.alguna-idea a {
+  margin-top: 0.7rem;
+  width: 80%;
+  font-family: Roboto;
+  font-size: 1rem;
+  color: var(--color-blanco);
+  text-decoration: none;
+}
+
+.alguna-idea p a {
+  border-bottom: solid 1px var(--color-blanco);
+}
+
+.correo {
+  margin-top: 0.7rem;
+}
