@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgb(26, 26, 125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: azure;
+}
+
+.snowflake{
+    top: -7vh;
+    position: absolute;
+    animation-name: snow-falls ;
+    animation-timing-function: linear;
+}
+
+@keyframes snow-falls {
+    from {
+        top: -7vh;
+    } to{
+        top: 101vh;
+    }
+}
