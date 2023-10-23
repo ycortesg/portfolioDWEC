@@ -358,8 +358,8 @@ footer{
 }
 
 #progress-music-bar::-webkit-progress-bar {
-   border-top-right-radius: 10px;
-   border-bottom-right-radius: 10px;
+    border-radius: 5px;   
+
    background-color: var(--gris);
    border: 0;
    transition: background-color 0.3s;

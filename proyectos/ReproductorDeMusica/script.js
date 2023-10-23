@@ -147,7 +147,7 @@ function playSong(idSong, progessBarProgress = "0") {
     document.querySelector(".texto h2").innerText = songObj.artist;
     document.querySelector(".texto h4").innerText = songObj.song;
 
-    if (indxActual != null && indxActual != newIndex) {
+    if (indxActual != null && indxActual != newIndex && !isLooped) {
         listaCanciones[indxActual].audio.currentTime = 0;
         listaCanciones[indxActual].audio.pause();
         clearInterval(intervalo);
@@ -165,7 +165,7 @@ function playSong(idSong, progessBarProgress = "0") {
             if (isLooped) indxActual--;
             nextSong(isLooped);
         }
-    }, 500);
+    }, 100);
     document.querySelector(".time-song").innerText = getTimeFormat(
         songPlaying.duration
     );
