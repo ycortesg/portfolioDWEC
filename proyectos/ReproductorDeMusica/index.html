@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reproductor de música</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer type="module"></script>
+</head>
+
+<body class="centrado columna">
+    <main class="main centrado">
+        <aside class="centrado columna">
+            <div class="logo"></div>
+            <div class="librerias centrado columna">
+                <div class="libreria centrado activa">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="View grid">
+                            <g id="Icon">
+                                <path
+                                    d="M5.33337 7.99967C5.33337 6.52692 6.52728 5.33301 8.00004 5.33301H10.6667C12.1395 5.33301 13.3334 6.52692 13.3334 7.99967V10.6663C13.3334 12.1391 12.1395 13.333 10.6667 13.333H8.00004C6.52728 13.333 5.33337 12.1391 5.33337 10.6663V7.99967Z"
+                                    stroke="#ADFF00" stroke-width="2.66667" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M18.6667 7.99967C18.6667 6.52692 19.8606 5.33301 21.3334 5.33301H24C25.4728 5.33301 26.6667 6.52692 26.6667 7.99967V10.6663C26.6667 12.1391 25.4728 13.333 24 13.333H21.3334C19.8606 13.333 18.6667 12.1391 18.6667 10.6663V7.99967Z"
+                                    stroke="#ADFF00" stroke-width="2.66667" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M5.33337 21.333C5.33337 19.8602 6.52728 18.6663 8.00004 18.6663H10.6667C12.1395 18.6663 13.3334 19.8602 13.3334 21.333V23.9997C13.3334 25.4724 12.1395 26.6663 10.6667 26.6663H8.00004C6.52728 26.6663 5.33337 25.4724 5.33337 23.9997V21.333Z"
+                                    stroke="#ADFF00" stroke-width="2.66667" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M18.6667 21.333C18.6667 19.8602 19.8606 18.6663 21.3334 18.6663H24C25.4728 18.6663 26.6667 19.8602 26.6667 21.333V23.9997C26.6667 25.4724 25.4728 26.6663 24 26.6663H21.3334C19.8606 26.6663 18.6667 25.4724 18.6667 23.9997V21.333Z"
+                                    stroke="#ADFF00" stroke-width="2.66667" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </g>
+                        </g>
+                    </svg>
+                    <p>Tu librería</p>
+                </div>
+                <div class="intermedio"></div>
+            </div>
+            <div class="bienvenida centrado">
+
+                <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path id="Icon"
+                        d="M14.3901 0.784222C13.7594 0.159166 12.7368 0.159166 12.1061 0.784222L0.801148 11.9881C0.170451 12.6132 0.170451 13.6266 0.801148 14.2516C1.43184 14.8767 2.45441 14.8767 3.0851 14.2516L3.55813 13.7828V24.3238C3.55813 25.2077 4.28119 25.9243 5.17313 25.9243H8.40312C9.29506 25.9243 10.0181 25.2077 10.0181 24.3238V21.1227C10.0181 20.2387 10.7412 19.5221 11.6331 19.5221H14.8631C15.7551 19.5221 16.4781 20.2387 16.4781 21.1227V24.3238C16.4781 25.2077 17.2012 25.9243 18.0931 25.9243H21.3231C22.2151 25.9243 22.9381 25.2077 22.9381 24.3238V13.7828L23.4111 14.2516C24.0418 14.8767 25.0644 14.8767 25.6951 14.2516C26.3258 13.6266 26.3258 12.6132 25.6951 11.9881L14.3901 0.784222Z"
+                        fill="#ADFF00" />
+                </svg>
+                <p>Bienvenid@</p>
+            </div>
+        </aside>
+        <main class="centrado columna">
+            <header class="centrado columna">
+                <h1>Añadidos Recientemente</h1>
+                <div class="botones-menu centrado">
+                    <button id="list">
+
+                    </button>
+                    <button id="grid" class="active">
+                        
+                    </button>
+                </div>
+            </header>
+            <div class="canciones grid">
+
+            </div>
+        </main>
+    </main>
+    <footer class="centrado">
+        <div class="inner centrado">
+            <div class="cancion centrado">
+                <img src="./iconos/default.jpg" alt="default" draggable="false">
+                <div class="texto">
+                    <h2>Artista</h2>
+                    <h4>Canción</h4>
+                </div>
+            </div>
+            <div class="progreso centrado columna">
+                <div class="acciones">
+                    <button id="loop">
+
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.6432 6.04388C22.2699 5.65222 22.2699 4.73956 21.6432 4.34789L16.53 1.15214C15.864 0.735855 15 1.2147 15 2.00013V8.39164C15 9.17707 15.864 9.65592 16.53 9.23964L21.6432 6.04388Z" fill="white" stroke="white"/>
+                            <path d="M2.47014 19.0439C1.84347 18.6522 1.84347 17.7396 2.47014 17.3479L7.58334 14.1521C8.24939 13.7359 9.11334 14.2147 9.11334 15.0001V21.3916C9.11334 22.1771 8.24939 22.6559 7.58334 22.2396L2.47014 19.0439Z" fill="white" stroke="white"/>
+                            <path d="M4 11V11C4 7.68629 6.68629 5 10 5V5H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                            <path d="M19 12V12C19 15.3137 16.3137 18 13 18V18H8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                            </svg>
+                    </button>
+                        <button id="previosSong">
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9.32576 12.8436C8.70826 12.4507 8.70825 11.5493 9.32575 11.1563L17.4631 5.978C18.1288 5.55436 19 6.03257 19 6.82166V17.1783C19 17.9674 18.1288 18.4456 17.4631 18.022L9.32576 12.8436Z"
+                                    fill="white" />
+                                <rect width="2" height="14" rx="1" transform="matrix(-1 0 0 1 7 5)" fill="white" />
+                            </svg>
+                        </button>
+
+                        <button id="pause-play" >
+
+                            <svg  class="pause" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.6432 10.848C15.2699 10.4563 15.2699 9.54367 14.6432 9.152L1.53 0.956248C0.863949 0.539968 0 1.01881 0 1.80425V18.1958C0 18.9812 0.863951 19.46 1.53 19.0438L14.6432 10.848Z"
+                                    fill="white" />
+                            </svg>
+                            <svg style="position: absolute;" class="play" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="3" width="6" height="18" rx="2" fill="white"/>
+                                <rect x="14" y="3" width="6" height="18" rx="2" fill="white"/>
+                                </svg>
+                        </button>
+
+                        <button id="nextSong">
+
+                            <svg class="pause" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.6742 12.8436C15.2917 12.4507 15.2917 11.5493 14.6742 11.1563L6.53688 5.978C5.87115 5.55436 5 6.03257 5 6.82166V17.1783C5 17.9674 5.87115 18.4456 6.53688 18.022L14.6742 12.8436Z"
+                                    fill="white" />
+                                <rect x="17" y="5" width="2" height="14" rx="1" fill="white" />
+                            </svg>
+                                
+                        </button>
+                        <button id="random">
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 18C14.423 18 12.9466 17.3826 11.8512 16.3346" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                                <path d="M7.15475 8.05196C5.78876 6.76008 3.95637 6 2 6" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                                <path
+                                    d="M22.6432 19.0439C23.2699 18.6522 23.2699 17.7396 22.6432 17.3479L17.53 14.1521C16.864 13.7359 16 14.2147 16 15.0001V21.3916C16 22.1771 16.864 22.6559 17.53 22.2396L22.6432 19.0439Z"
+                                    fill="white" stroke="white"/>
+                                <path
+                                    d="M16 6V6C13.5778 6 11.3932 7.45643 10.4615 9.69231L8.92308 13.3846C7.75856 16.1795 5.02776 18 2 18V18"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+                                <path
+                                    d="M21.6432 7.04388C22.2699 6.65222 22.2699 5.73956 21.6432 5.34789L16.53 2.15214C15.864 1.73586 15 2.2147 15 3.00013V9.39164C15 10.1771 15.864 10.6559 16.53 10.2396L21.6432 7.04388Z"
+                                    fill="white" stroke="white"/>
+                            </svg>
+                        </button>
+                </div>
+                <div class="bar">
+                    <div class="time-remaining"></div>
+                    <progress id="progress-music-bar" value="0" ></progress>
+                    <div class="time-song"></div>
+                </div>
+            </div>
+            <div class="volumen centrado">
+                <div class="svg-container">
+                    <div id="svgabsoluto">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Volume up">
+                                <path id="Icon"
+                                    d="M13.8094 8.19086C15.5451 9.92653 15.5451 12.7406 13.8094 14.4763M16.3236 5.67665C19.4478 8.80084 19.4478 13.8662 16.3236 16.9904M4.96522 14.0003H3.55564C3.06472 14.0003 2.66675 13.6023 2.66675 13.1114V9.55582C2.66675 9.0649 3.06472 8.66693 3.55564 8.66693H4.96522L9.14932 4.48283C9.70929 3.92287 10.6667 4.31946 10.6667 5.11137V17.5558C10.6667 18.3477 9.70929 18.7443 9.14932 18.1844L4.96522 14.0003Z"
+                                    stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <input type="range" id="volumen" min="0" max="100">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
