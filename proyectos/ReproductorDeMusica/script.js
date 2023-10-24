@@ -290,7 +290,7 @@ function randomAction() {
         document.querySelector("header h1").innerText = isRandomized ? "Añadidos Recientemente" : "Aleatorio";
 
         if (isRandomized) {
-            songsList.sort((a, b) => b.id <= a.id);
+            songsList = songsList.sort((a, b) => b.id <= a.id);
         } else {
             songsList = shuffle(songsList);
         }
