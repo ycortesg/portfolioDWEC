@@ -1,75 +1,81 @@
+// Declaración de variables
 let data;
-let listaCanciones;
-let indxActual;
-let intervalo;
-let libreria = "Tu libreria";
+let songsList;
+let actualIndx;
+let interval;
+let librery = "Tu libreria";
 let songObj;
 let paused = true;
 let isLooped = false;
 let isRandomized = false;
-const loopBtn = document.querySelector("button#loop");
-const previousBtn = document.querySelector("button#previosSong");
-const pausePlayBtn = document.querySelector("button#pause-play");
-const nextBtn = document.querySelector("button#nextSong");
-const randomBtn = document.querySelector("button#random");
-const progressBar = document.querySelector("#progress-music-bar");
+const LOOP_BTN = document.querySelector("button#loop");
+const PREVIOUS_BTN = document.querySelector("button#previosSong");
+const PAUSE_PLAY_BTN = document.querySelector("button#pause-play");
+const NEXT_BTN = document.querySelector("button#nextSong");
+const RANDOM_BTN = document.querySelector("button#random");
+const PROGRESS_BAR = document.querySelector("#progress-music-bar");
+const VOLUME = document.querySelector("#volumen");
+const VOLUME_SVG = document.querySelector("#svgabsoluto");
+const GRID_BTN = document.querySelector("button#grid");
+const LIST_BTN = document.querySelector("button#list");
+const CONTAINER_SONGS = document.querySelector(".canciones");
 
-pausePlayBtn.querySelector(".play").style.opacity = 0;
+PAUSE_PLAY_BTN.querySelector(".play").style.opacity = 0;
 
-// Volumen
-const volume = document.querySelector("#volumen");
-const volumeSVG = document.querySelector("#svgabsoluto");
+// event listener de input range para cambiar el volumen 
 
 function changeVolumeDOM() {
-    let volumeValue = parseInt(volume.value);
-    volume.style.background = `linear-gradient(90deg, var(--verde) 0%, var(--verde) ${volumeValue}%, var(--background-range) ${volumeValue}%)`;
-    volumeSVG.style.width =
+    let volumeValue = parseInt(VOLUME.value);
+    VOLUME.style.background = `linear-gradient(90deg, var(--verde) 0%, var(--verde) ${volumeValue}%, var(--background-range) ${volumeValue}%)`;
+    VOLUME_SVG.style.width =
         volumeValue >= 75 ? "100%" : volumeValue >= 25 ? "64%" : "52%";
 
-    if (indxActual != null)
-        listaCanciones[indxActual].audio.volume = volumeValue / 100;
+    if (actualIndx != null)
+        songsList[actualIndx].audio.volume = volumeValue / 100;
 }
 
-volume.addEventListener("change", changeVolumeDOM);
-volume.addEventListener("input", changeVolumeDOM);
+// se añade la accion de cambio de volumen en canmbio y en input a la barra de volumen
+VOLUME.addEventListener("change", changeVolumeDOM);
+VOLUME.addEventListener("input", changeVolumeDOM);
 
+// al iniciar la pagina se inicia la pagina se cambia el volumen
 changeVolumeDOM();
 
-// wrap-flex
-const gridbtn = document.querySelector("button#grid");
-const listbtn = document.querySelector("button#list");
-const containerSongs = document.querySelector(".canciones");
-
+// Estructura de cuadrados o lista
 function changeLayout() {
-    if (gridbtn.classList.contains("active")) {
-        gridbtn.classList.remove("active");
-        listbtn.classList.add("active");
-        containerSongs.classList.remove("grid");
-        containerSongs.classList.add("list");
+    if (GRID_BTN.classList.contains("active")) {
+        GRID_BTN.classList.remove("active");
+        LIST_BTN.classList.add("active");
+        CONTAINER_SONGS.classList.remove("grid");
+        CONTAINER_SONGS.classList.add("list");
     } else {
-        listbtn.classList.remove("active");
-        gridbtn.classList.add("active");
-        containerSongs.classList.remove("list");
-        containerSongs.classList.add("grid");
+        LIST_BTN.classList.remove("active");
+        GRID_BTN.classList.add("active");
+        CONTAINER_SONGS.classList.remove("list");
+        CONTAINER_SONGS.classList.add("grid");
     }
 }
 
-gridbtn.addEventListener("click", (e) => {
+// si el boton de cuadrados no esta seleccionado se cambia la estructura a la de cuadrados
+GRID_BTN.addEventListener("click", (e) => {
     if (!e.target.classList.contains("active")) changeLayout();
 });
 
-listbtn.addEventListener("click", (e) => {
+// si el boton de lista no esta seleccionado se cambia la estructura a la de lista
+LIST_BTN.addEventListener("click", (e) => {
     if (!e.target.classList.contains("active")) changeLayout();
 });
 
-// crear canciones-Container
+// sacar los datos del archivo json donde estan la informacion de artistas y canciones
 async function loadData() {
-    const response = await fetch("./canciones.json");
-    data = await response.json();
+    const RESPONSE = await fetch("./canciones.json");
+    data = await RESPONSE.json();
 }
 
+// cuando se termine de sacar la informacion del json se crea la lista de canciones
+// y se crean todas las miniaturas
 loadData().then(() => {
-    listaCanciones = data[libreria].map((e) => {
+    songsList = data[librery].map((e) => {
         let { id, artist, song } = e;
         return {
             id: id,
@@ -78,17 +84,19 @@ loadData().then(() => {
             audio: new Audio(`audios/${"Tu libreria"}/${e.id}.mp3`),
         };
     });
-    createThumbnails(listaCanciones, "Tu libreria");
+    createThumbnails(songsList, "Tu libreria");
 });
 
-function createThumbnail(element, libreria) {
+
+// crea una miniatura 
+function createThumbnail(element, librery) {
     let div = document.createElement("div");
     let img = document.createElement("img");
     let h3 = document.createElement("h3");
     let h5 = document.createElement("h5");
-    const thumbnail = `./miniaturas/${libreria}/${element.id}.jpg`;
+    const THUMBNAIL = `./miniaturas/${librery}/${element.id}.jpg`;
 
-    img.src = thumbnail;
+    img.src = THUMBNAIL;
     img.draggable = false;
     img.alt = element.song;
     h3.innerText = element.artist;
@@ -98,6 +106,7 @@ function createThumbnail(element, libreria) {
     div.appendChild(h5);
     div.appendChild(element.audio);
 
+    // se añade la accion de reproducir cancion a cada miniatura con su respenctivo id al clic
     div.addEventListener("click", () => {
         playSong(element.id);
     });
@@ -105,23 +114,25 @@ function createThumbnail(element, libreria) {
     return div;
 }
 
-function createThumbnails(data, libreria) {
+// crea todas las miniaturas del container
+function createThumbnails(data, librery) {
     data.forEach((e) => {
-        containerSongs.appendChild(createThumbnail(e, libreria));
+        CONTAINER_SONGS.appendChild(createThumbnail(e, librery));
     });
 }
 
+// mezcla array
 function shuffle(array) {
     let currentIndex = array.length,
         randomIndex;
 
-    // While there remain elements to shuffle.
+    // mientras quedan elementos que mezclar
     while (currentIndex > 0) {
-        // Pick a remaining element.
+        // Escoje un elemento restante
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
 
-        // And swap it with the current element.
+        // E intercambiarlo con el elemento actual
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex],
             array[currentIndex],
@@ -131,105 +142,132 @@ function shuffle(array) {
     return array;
 }
 
+// reproduce la cancion que tenga el id introducido
 function playSong(idSong, progessBarProgress = "0") {
     paused = false;
     let newIndex;
 
-    songObj = listaCanciones.filter((e, indx) => {
+    // encontramos la cancion selecccionada
+    songObj = songsList.filter((e, indx) => {
         if (e.id === idSong) {
             newIndex = indx;
             return e.id === idSong;
         }
     })[0];
+
+    // cambiamos la informacion en la barra inferior a la izquierda por la de la cancion 
+    // reproduciendose
     document.querySelector(
         ".cancion img"
-    ).src = `./miniaturas/${libreria}/${idSong}.jpg`;
+    ).src = `./miniaturas/${librery}/${idSong}.jpg`;
     document.querySelector(".texto h2").innerText = songObj.artist;
     document.querySelector(".texto h4").innerText = songObj.song;
 
-    if (indxActual != null && indxActual != newIndex && !isLooped) {
-        listaCanciones[indxActual].audio.currentTime = 0;
-        listaCanciones[indxActual].audio.pause();
-        clearInterval(intervalo);
+    // si se entava reproduciendo una cancion distinta a la que se estaba reproduciendo
+    // se pausa la anterior cancion, se cambia su current nime a 0 y se elmina el intervalo
+    if (actualIndx != null && actualIndx != newIndex && !isLooped) {
+        songsList[actualIndx].audio.currentTime = 0;
+        songsList[actualIndx].audio.pause();
+        clearInterval(interval);
     }
 
     let songPlaying = songObj.audio;
-    intervalo = setInterval(() => {
+    
+    // declaramos intervalo
+    interval = setInterval(() => {
+        // actualizamos el timepo actual de la cancion y la barra de progreso
         document.querySelector(".time-remaining").innerText = getTimeFormat(
             songPlaying.currentTime
         );
         document.querySelector("#progress-music-bar").value =
             songPlaying.currentTime;
+        
+        // si se acaba la cancion se elimina el intervalo y se reproduce la siguiente
         if (songPlaying.ended) {
-            clearInterval(intervalo);
-            if (isLooped) indxActual--;
+            clearInterval(interval);
+            if (isLooped) actualIndx--;
             nextSong(isLooped);
         }
     }, 100);
+
+    // cambiamos el dom de la duracion y el progreso de reproduccion
     document.querySelector(".time-song").innerText = getTimeFormat(
         songPlaying.duration
     );
     document.querySelector(".time-remaining").innerText = getTimeFormat(
         songPlaying.currentTime
     );
+
+    // cambiamos el maximo de la barra de reproduccion y su valor 
     document.querySelector("#progress-music-bar").max = songPlaying.duration;
     document.querySelector("#progress-music-bar").value = progessBarProgress;
-    indxActual = newIndex;
+
+    // actualizamos el index actual y el volumen
+    actualIndx = newIndex;
     changeVolumeDOM();
 
     pausedNotPaused();
+    // empezamos a reproducir la musica
     songPlaying.play();
 }
 
+// reproduce la siguiente cancion en la lista de canciones
 function nextSong(fromLoop = false) {
-    if (indxActual != null) {
+    if (actualIndx != null) {
         if (!fromLoop && isLooped) loopAction();
         playSong(
-            listaCanciones[
-                indxActual < listaCanciones.length - 1 ? indxActual + 1 : 0
+            songsList[
+                actualIndx < songsList.length - 1 ? actualIndx + 1 : 0
             ].id
         );
     }
 }
 
+// reproduce la anterior cancion en la lista de canciones
 function previousSong() {
-    if (indxActual != null) {
+    if (actualIndx != null) {
         if (isLooped) loopAction();
         playSong(
-            listaCanciones[
-                indxActual > 0 ? indxActual - 1 : listaCanciones.length - 1
+            songsList[
+                actualIndx > 0 ? actualIndx - 1 : songsList.length - 1
             ].id
         );
     }
 }
 
+// devuelve el tiempo en un formato de MM:ss
 function getTimeFormat(time) {
     return `${Math.trunc(time / 60)}:${time % 60 > 10 ? "" : "0"}${Math.trunc(
         time % 60
     )}`;
 }
 
+// si la variable paused esta true se cambia el dom del boton pause/play 
+// y se para la cancion que se esta reproduciendo, si es false se reanuda 
+// la cancion que se esta reproduciendo
 function pausedNotPaused(fromPlay = true) {
-    if (indxActual != null) {
-        pausePlayBtn.querySelector(".play").style.opacity = paused ? 0 : 1;
-        pausePlayBtn.querySelector(".pause").style.opacity = paused ? 1 : 0;
+    if (actualIndx != null) {
+        PAUSE_PLAY_BTN.querySelector(".play").style.opacity = paused ? 0 : 1;
+        PAUSE_PLAY_BTN.querySelector(".pause").style.opacity = paused ? 1 : 0;
 
         if (paused) {
-            listaCanciones[indxActual].audio.pause();
-            clearInterval(intervalo);
+            songsList[actualIndx].audio.pause();
+            clearInterval(interval);
         } else if (!fromPlay) {
             playSong(
-                listaCanciones[indxActual].id,
+                songsList[actualIndx].id,
                 document.querySelector("#progress-music-bar").value
             );
         }
     }
 }
 
+
+// cambia el DOM del boton loop y la variable isLooped
 function loopAction() {
-    if (indxActual != null) {
+    if (actualIndx != null) {
         let color = isLooped ? "white" : "#ADFF00";
-        for (let path of loopBtn.querySelectorAll("path")) {
+        for (let path of LOOP_BTN.querySelectorAll("path")) {
             path.style.stroke = color;
             path.style.fill = color;
         }
@@ -237,28 +275,30 @@ function loopAction() {
     }
 }
 
+// mezcla la lista de reproduccion si isRandomized es false y
+// si es true se ordena la lista
 function randomAction() {
-    if (indxActual != null) {
+    if (actualIndx != null) {
         if (isLooped) loopAction();
 
-        console.log(listaCanciones[indxActual]);
-        listaCanciones[indxActual].audio.currentTime = 0;
-        listaCanciones[indxActual].audio.pause();
+        console.log(songsList[actualIndx]);
+        songsList[actualIndx].audio.currentTime = 0;
+        songsList[actualIndx].audio.pause();
         removeSongs();
 
         document.querySelector("header h1").innerText = isRandomized ? "Añadidos Recientemente" : "Aleatorio";
 
         if (isRandomized) {
-            listaCanciones.sort((a, b) => b.id <= a.id);
+            songsList.sort((a, b) => b.id <= a.id);
         } else {
-            listaCanciones = shuffle(listaCanciones);
+            songsList = shuffle(songsList);
         }
 
-        createThumbnails(listaCanciones, libreria);
-        indxActual = listaCanciones.length - 1;
+        createThumbnails(songsList, librery);
+        actualIndx = songsList.length - 1;
         nextSong();
         let color = isRandomized ? "white" : "#ADFF00";
-        for (let path of randomBtn.querySelectorAll("path")) {
+        for (let path of RANDOM_BTN.querySelectorAll("path")) {
             path.style.stroke = color;
             path.style.fill = color;
         }
@@ -266,27 +306,30 @@ function randomAction() {
     }
 }
 
+// elimina los elementos del contenedor de las canciones 
 function removeSongs() {
-    for (let elemnt of containerSongs.querySelectorAll("div")) {
+    for (let elemnt of CONTAINER_SONGS.querySelectorAll("div")) {
         elemnt.remove();
     }
 }
 
-previousBtn.onclick = previousSong;
-nextBtn.onclick = () => nextSong(false);
-pausePlayBtn.onclick = () => {
-    if (indxActual != null) paused = !paused;
+// añadimos los event listeners para cada cancion
+
+PREVIOUS_BTN.onclick = previousSong;
+NEXT_BTN.onclick = () => nextSong(false);
+PAUSE_PLAY_BTN.onclick = () => {
+    if (actualIndx != null) paused = !paused;
     pausedNotPaused(false);
 };
-loopBtn.onclick = loopAction;
-randomBtn.onclick = randomAction;
+LOOP_BTN.onclick = loopAction;
+RANDOM_BTN.onclick = randomAction;
 
-progressBar.addEventListener('click', (e) => {
-    if (indxActual != null){
-        let resulVal = listaCanciones[indxActual].audio.duration / e.target.clientWidth;
-        listaCanciones[indxActual].audio.currentTime = resulVal * e.layerX;
-        document.querySelector("#progress-music-bar").value = listaCanciones[indxActual].audio.currentTime;
+PROGRESS_BAR.addEventListener('click', (e) => {
+    if (actualIndx != null){
+        let resulVal = songsList[actualIndx].audio.duration / e.target.clientWidth;
+        songsList[actualIndx].audio.currentTime = resulVal * e.layerX;
+        document.querySelector("#progress-music-bar").value = songsList[actualIndx].audio.currentTime;
         document.querySelector(".time-remaining").innerText = getTimeFormat(
-            listaCanciones[indxActual].audio.currentTime)
+            songsList[actualIndx].audio.currentTime)
     }
 })
