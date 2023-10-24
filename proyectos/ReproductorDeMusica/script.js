@@ -214,6 +214,7 @@ function playSong(idSong, progessBarProgress = "0") {
 // reproduce la siguiente cancion en la lista de canciones
 function nextSong(fromLoop = false) {
     if (actualIndx != null) {
+        clearInterval(interval);
         if (!fromLoop && isLooped) loopAction();
         playSong(
             songsList[
