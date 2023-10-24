@@ -289,6 +289,8 @@ function randomAction() {
         document.querySelector("header h1").innerText = isRandomized ? "Añadidos Recientemente" : "Aleatorio";
 
         if (isRandomized) {
+
+            // no funciona el ordenado en el despliegue de github pages
             songsList = songsList.sort((a, b) => b.id <= a.id);
         } else {
             songsList = shuffle(songsList);
