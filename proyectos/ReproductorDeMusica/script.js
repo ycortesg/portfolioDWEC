@@ -282,7 +282,6 @@ function randomAction() {
     if (actualIndx != null) {
         if (isLooped) loopAction();
 
-        console.log(songsList[actualIndx]);
         songsList[actualIndx].audio.currentTime = 0;
         songsList[actualIndx].audio.pause();
         removeSongs();
