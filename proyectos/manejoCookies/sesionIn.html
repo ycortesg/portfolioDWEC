@@ -1,0 +1,19 @@
+<script type="module">
+    import getCookie from "./scripts/getCookie.js";
+
+    // Si la cookie isloggedIns no existe o su valor es false se cambia la pagina al index
+    if (getCookie("isLoggedIn") == null || getCookie("isLoggedIn") === "false") window.location.href='./index.html';
+</script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesion iniciada</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./scripts/loggedInScript.js" defer ></script>
+</head>
+<body class="centrado">
+    <button id="close-sesion">Cerrar sesión</button>
+</body>
+</html>

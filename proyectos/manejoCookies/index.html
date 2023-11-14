@@ -1,0 +1,27 @@
+
+<script type="module">
+  import getCookie from "./scripts/getCookie.js";
+
+  // Si la cookie isloggedIns existe y su valor es true se cambia la pagina a la de sescion inidiada
+  if (getCookie("isLoggedIn") != null && getCookie("isLoggedIn") === "true") window.location.href='./sesionIn.html';
+</script>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="./scripts/Startscript.js" type="module"></script>
+</head>
+<body class="centrado">
+      <div class="container centrado columna">
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" placeholder="Introduce tu nombre" id="nombre">
+    
+        <label for="contraseña"><b>Contraseña</b></label>
+        <input type="password" placeholder="Introduce tu contraseña" id="contrasena" >
+    
+        <button id="submit">Iniciar sesión</button>
+      </div>
+</body>
+</html>

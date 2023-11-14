@@ -139,15 +139,28 @@ main {
   word-wrap: break-word;
 }
 
-.container-proyectos {
+.container-container-proyectos{
+  width: calc(17rem*3);
   height: 70%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+.container-proyectos {
+  height: 100%;
+  width: calc(17rem * 4);
+  display: flex;
+  justify-content: end;
+  
   gap: 1em;
 }
 
+#back{
+  background-color: orange;
+}
+
 .proyecto {
+  width: 16rem;
   height: 100%;
 }
 
