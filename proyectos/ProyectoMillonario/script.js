@@ -53,6 +53,7 @@ function doubleMoney() {
 function sortByRichest() {
   userList = userList.sort((a, b)=>(a.money < b.money) ? 1 : -1)
   updateDOM(userList)
+  setLocalStorage()
   // TIP: Puedes usar sort()
 }
 
