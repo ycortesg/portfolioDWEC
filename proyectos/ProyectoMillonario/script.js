@@ -102,17 +102,12 @@ function formatMoney(number) {
 }
 
 function setLocalStorage(){
-  localStorage.setItem('name', userList.map(e=>Object.values(e).join("<-->")).join("<==>"))
+  localStorage.setItem('millonarios', JSON.stringify(userList));
 }
 
 function getLocalStorage(){
-  let itemLocalStorage = localStorage.getItem('name');
-  let processed1 = (itemLocalStorage.indexOf("<==>") > -1 ? itemLocalStorage.split("<==>") : [itemLocalStorage]).map(e=>e.split("<-->"))
-  userList = processed1.map((e)=>{
-    let [nombre, money, id] = e;
-    return{"name":nombre, "money":Number(money), "id":id}
-  })
-  id = parseInt(userList[userList.length-1]["id"].split("-")[1])+1
+  userList = JSON.parse(localStorage.getItem("millonarios"));
+  id = userList.length;
 }
 
 addUserBtn.onclick = getRandomUser;
@@ -126,7 +121,7 @@ calculateWealthBtn.onclick = calculateWealth;
 
 // Obtenemos un usuario al iniciar la app
 
-if (localStorage.getItem('name')){
+if (localStorage.getItem('millonarios')){
   getLocalStorage()
   updateDOM(userList)
 }else{
