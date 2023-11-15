@@ -111,7 +111,7 @@ function getLocalStorage(){
     let [nombre, money, id] = e;
     return{"name":nombre, "money":Number(money), "id":id}
   })
-  id = Number(userList[userList.length-1]["id"].split("-"))[1]
+  id = parseInt(userList[userList.length-1]["id"].split("-")[1])+1
 }
 
 addUserBtn.onclick = getRandomUser;

@@ -148,7 +148,7 @@ main {
 
 .container-proyectos {
   height: 100%;
-  width: calc(17rem * 4);
+  width: calc(17rem * 5);
   display: flex;
   justify-content: end;
   
