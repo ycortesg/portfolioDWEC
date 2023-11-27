@@ -1,0 +1,232 @@
+@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#pokemonCard,
+.card-wrapper {
+  height: 30rem;
+  width: 22rem;
+}
+.h-85 {
+  height: 85%;
+}
+.h-15 {
+  height: 15%;
+}
+.w-85 {
+  width: 85%;
+}
+.w-28 {
+  width: 30%;
+}
+
+.top--100 {
+  top: -100%;
+}
+.left-0 {
+  left: 0;
+}
+.right-0 {
+  right: 0;
+}
+.fs-stats {
+  font-size: 0.8em;
+}
+.bg-opacity-0{
+  background: transparent;
+}
+progress {
+  height: 0.6rem;
+  border-radius: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+}
+.button-header {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#shiny:hover {
+  filter: drop-shadow(0.5px 0.5px 0 rgba(200, 200, 0, 1))
+    drop-shadow(0.5px -0.5px 0 rgba(200, 200, 0, 1))
+    drop-shadow(-0.5px 0.5px 0 rgba(200, 200, 0, 1))
+    drop-shadow(-0.5px -0.5px 0 rgba(200, 200, 0, 1)) invert(10);
+}
+#evo-chain:hover {
+  filter: drop-shadow(0.5px 0.5px 0 rgba(80, 0, 0, 1))
+    drop-shadow(0.5px -0.5px 0 rgba(80, 0, 0, 1))
+    drop-shadow(-0.5px 0.5px 0 rgba(80, 0, 0, 1))
+    drop-shadow(-0.5px -0.5px 0 rgba(80, 0, 0, 1)) invert(10);
+}
+.female:hover {
+  filter: drop-shadow(0.5px 0.5px 0 rgb(14, 156, 19))
+    drop-shadow(0.5px -0.5px 0 rgb(14, 156, 19))
+    drop-shadow(-0.5px 0.5px 0 rgb(14, 156, 19))
+    drop-shadow(-0.5px -0.5px 0 rgb(14, 156, 19)) invert(10);
+}
+.male:hover {
+  filter: drop-shadow(0.5px 0.5px 0 rgb(100, 26, 39))
+    drop-shadow(0.5px -0.5px 0 rgb(100, 26, 39))
+    drop-shadow(-0.5px 0.5px 0 rgb(100, 26, 39))
+    drop-shadow(-0.5px -0.5px 0 rgb(100, 26, 39)) invert(10);
+}
+
+#hp progress {
+  background-color: rgba(0, 128, 0, 0.2);
+}
+
+#hp progress::-moz-progress-bar {
+  background-color: green;
+}
+
+#hp progress {
+  background-color: rgba(0, 128, 0, 0.2);
+}
+
+#hp progress::-moz-progress-bar {
+  background-color: green;
+}
+
+#atk progress {
+  background-color: rgba(255, 230, 0, 0.2);
+}
+
+#atk progress::-moz-progress-bar {
+  background-color: rgb(255, 230, 0);
+}
+
+#def progress {
+  background-color: rgba(198, 105, 17, 0.2);
+}
+
+#def progress::-moz-progress-bar {
+  background-color: rgb(198, 105, 17);
+}
+
+#spe progress {
+  background-color: rgba(13, 158, 183, 0.2);
+}
+
+#spe progress::-moz-progress-bar {
+  background-color: rgb(13, 158, 183);
+}
+
+#sp-at progress {
+  background-color: rgba(128, 6, 0, 0.2);
+}
+
+#sp-at progress::-moz-progress-bar {
+  background-color: rgb(128, 6, 0);
+}
+
+#sp-df progress {
+  background-color: rgba(128, 0, 105, 0.2);
+}
+
+#sp-df progress::-moz-progress-bar {
+  background-color: rgb(128, 0, 105);
+}
+
+.shiny-active {
+  filter: invert(10);
+}
+
+.hide-button {
+  z-index: -2;
+}
+.back-card {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(170, 241, 255, 1) 16%,
+    rgba(128, 234, 255, 1) 22%,
+    rgba(0, 212, 255, 1) 28%,
+    rgba(1, 195, 243, 1) 33%,
+    rgba(3, 135, 204, 1) 43%,
+    rgba(4, 122, 196, 1) 49%,
+    rgba(5, 92, 176, 1) 53%,
+    rgba(5, 98, 180, 1) 60%,
+    rgba(20, 66, 135, 1) 69%,
+    rgba(13, 37, 102, 1) 75%,
+    rgba(19, 41, 122, 1) 82%,
+    rgba(7, 31, 135, 1) 86%,
+    rgba(27, 42, 117, 1) 90%,
+    rgba(12, 51, 182, 1) 91%,
+    rgba(8, 24, 131, 1) 94%,
+    rgba(21, 54, 198, 1) 97%,
+    rgba(17, 17, 193, 1) 100%
+  );
+  font-family: "Pokemon Solid", sans-serif;
+}
+.back-card h1 {
+  letter-spacing: 0.5rem;
+  color: rgb(249, 212, 77);
+  font-size: 3em;
+  text-shadow: 4px 0 #081c85, -4px 0 #081c85, 0 4px #081c85, 0 -4px #081c85,
+    2px 2px #081c85, -2px -2px #081c85, 2px -2px #081c85, -2px 2px #081c85;
+}
+.back-card div {
+  transform: translateY(-3rem);
+}
+
+.back-card img {
+  height: 50%;
+}
+
+.front-to-back {
+  transform: rotateY(0deg);
+  animation: flip 0.3s linear;
+  z-index: 2;
+}
+
+.back-to-front {
+  transform: rotateY(180deg);
+  animation: flip 0.3s linear reverse;
+  z-index: -2;
+}
+
+@keyframes flip {
+  from {
+    z-index: -2;
+    transform: rotateY(180deg);
+  }
+  to {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+}
+
+.front-to-back2 {
+  transform: rotateY(360deg);
+  animation: flip2 0.3s linear;
+  z-index: 2;
+}
+
+.back-to-front2 {
+  transform: rotateY(180deg);
+  animation: flip2 0.3s linear reverse;
+  z-index: -2;
+}
+
+@keyframes flip2 {
+  from {
+    z-index: -2;
+    transform: rotateY(180deg);
+  }
+  to {
+    z-index: 2;
+    transform: rotateY(360deg);
+  }
+}
+
+#evo-chain-container {
+  transition: top 0.3s linear;
+}
+
+#evo-chain-container div {
+  cursor: pointer;
+}
+
+.display-evo-chain {
+  top: 0%;
+}

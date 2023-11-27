@@ -21,6 +21,10 @@
   flex-direction: column;
 }
 
+.hiden{
+  opacity: 0;
+}
+
 html,
 body {
   height: 250vh;
@@ -148,7 +152,7 @@ main {
 
 .container-proyectos {
   height: 100%;
-  width: calc(17rem * 6);
+  width: calc(17rem * 9);
   display: flex;
   justify-content: end;
   
@@ -197,6 +201,10 @@ main {
 
 .tecnologias .css {
   background-color: #34d399;
+}
+
+.tecnologias .bootstrap {
+  background-color: #5c1a85;
 }
 
 .tecnologias .html {

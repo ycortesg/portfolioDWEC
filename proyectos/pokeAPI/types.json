@@ -1,0 +1,21 @@
+{
+    "bug": {"red": 168, "green": 184, "blue": 32},
+    "dragon": {"red": 120, "green": 96, "blue": 224},
+    "electric": {"red": 248, "green": 208, "blue": 48},
+    "ghost": {"red": 96, "green": 96, "blue": 176},
+    "fire": {"red": 240, "green": 80, "blue": 48},
+    "fairy": {"red": 231, "green": 159, "blue": 231},
+    "ice": {"red": 88, "green": 200, "blue": 224},
+    "fighting": {"red": 192, "green": 48, "blue": 40},
+    "normal": {"red": 168, "green": 168, "blue": 120},
+    "grass": {"red": 120, "green": 200, "blue": 80},
+    "psychic": {"red": 248, "green": 88, "blue": 136},
+    "rock": {"red": 184, "green": 160, "blue": 56},
+    "dark": {"red": 112, "green": 88, "blue": 72},
+    "ground": {"red": 224, "green": 192, "blue": 104},
+    "poison": {"red": 160, "green": 64, "blue": 160},
+    "flying": {"red": 168, "green": 144, "blue": 240},
+    "steel": {"red": 184, "green": 184, "blue": 208},
+    "water": {"red": 56, "green": 153, "blue": 248}
+  }
+  
